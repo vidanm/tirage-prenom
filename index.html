@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirage de Prénom</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background:white;
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+            color: black;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+        }
+        .prenom {
+            font-size: 10rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.3); */
+            min-height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .instruction {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-top: 2rem;
+        }
+        button {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            margin: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lis le prénom</h1>
+        <div class="prenom" id="prenom">Appuyez sur ESPACE</div>
+        <!-- <button onclick="tirerPrenom()">Tirer un prénom</button> -->
+        <div class="instruction">Appuyez sur ESPACE pour relancer le tirage</div>
+    </div>
+
+    <script>
+        const prenoms = [
+        "Akylman","Issam","Elyanah","Yasmine","Anastasia","Chahid","Mariam","Koudjédji","Soan","Mélyana",
+        "Soukeyna","Al Moubarak","Irchad","Qassim","Atef","Jaelle","Dylan","Aiza","Adem","Kadidia","Maimouna","Fathya","Sasha","Mohamed","Shaynice"
+        ];
+
+        function tirerPrenom() {
+            const index = Math.floor(Math.random() * prenoms.length);
+            const prenomChoisi = prenoms[index];
+            document.getElementById('prenom').textContent = prenomChoisi;
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'Space') {
+                event.preventDefault();
+                tirerPrenom();
+            }
+        });
+    </script>
+</body>
+</html>
